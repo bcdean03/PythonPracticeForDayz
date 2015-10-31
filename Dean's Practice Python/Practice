@@ -1,0 +1,73 @@
+'''
+#For example: digit_sum(1234) should return 10 which is 1 + 2 + 3 + 4.
+def digit_sum(n):
+    stringN = str(n)
+    print stringN
+    total = 0
+    for i in stringN:
+        total+= int(i)
+    return total
+
+print(digit_sum(1234))
+
+#factorial
+def factorial(x):
+    if x == 1:
+        return 1
+    else:
+        return x * factorial(x-1)
+
+#Prime Didnt change int
+def checkChange(x):
+    b = x
+    b-=2
+    print b
+    print x
+checkChange(5)
+
+def is_prime(x):
+    decrementer = x-1
+    while(decrementer != 1):
+        if x % decrementer == 0:
+            return False
+        decrementer-=1
+    return True
+
+print(is_prime(6))
+
+def reverse_strings(x):
+     for i in reversed(x):
+        print i,
+
+
+
+def reverse_string(text):
+    newString = ""
+    for i in range(len(text)-1, -1, -1):
+        newString += text[i]
+    return newString
+
+print reverse_string("hello abel")
+reverse_strings("hello abel")
+
+def reverse_string(text):
+    newString = ""
+    for i in range(-1, -len(text)-1, -1):
+        newString += text[i]
+    return newString
+
+print reverse_string("hello abel")
+'''''
+def anti_vowel(text):
+    anti_vowel = ""
+    for i in range(len(text)):
+        if text[i].lower() != 'a' \
+            and text[i].lower() != 'e' \
+            and text[i].lower() != 'i' \
+            and text[i].lower() != 'o' \
+            and text[i].lower() != 'u':
+                anti_vowel+= text[i]
+    return anti_vowel
+
+print(anti_vowel("Dean"))
+
