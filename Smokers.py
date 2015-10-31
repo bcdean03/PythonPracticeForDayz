@@ -1,4 +1,4 @@
-__author__ = 'Not Dean'
+__author__ = 'Not Ours from other Repo'
 from threading import Thread, Condition
 import time
 import random
