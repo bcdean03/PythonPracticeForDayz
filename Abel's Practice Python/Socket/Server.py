@@ -29,7 +29,7 @@ def main():
             break
         print "Received:", str(data)
         data = str(data).upper()
-        print "Sending:", str(data)
+        print "Sending: ", str(data)
         c.send(data)
     c.close()
 
