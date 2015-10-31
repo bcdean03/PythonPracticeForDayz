@@ -36,11 +36,11 @@ class Producer (Thread):
                     #     global n_smk
                     #     n_smk=0
                     # with lock_print: print "!!!Going to Reset Items!!!\n"
-                    print "!!!Going to Reset Items!!!\n"
+                    print("!!!Going to Reset Items!!!\n")
                     # with lock_m:lock_m.notifyAll()
                 else:
                     # with lock_print: print ">>Waiting for Smokers to be ready<<"
-                    print ">>Waiting for Smokers to be ready<<"
+                    print(">>Waiting for Smokers to be ready<<")
     def getItemReady(self):
         i1=random.randrange(0,self.__rangeSet)
         i2=i1
@@ -51,8 +51,8 @@ class Producer (Thread):
             global missing
             missing = filter(lambda x: x!=i1 and x!=i2, items)[0]
             # with lock_print:
-            print  "Produced:",items.get(i1), items.get(i2)
-            print "Missing:", items.get(missing)
+            print("Produced:",items.get(i1), items.get(i2))
+            print("Missing:", items.get(missing))
 
 
 
@@ -66,22 +66,22 @@ class Smoker (Thread):
             global n_smk
             n_smk+=1
             # with lock_print:
-            print "{} READY".format(self.name)
+            print("{} READY".format(self.name))
             c_for_smk.wait()
             # with lock_print:
-            print "{} GOING TO TRY TO SMOKE".format(self.name)
+            print("{} GOING TO TRY TO SMOKE".format(self.name))
             self.try_to_smoke()
     def try_to_smoke(self):
         with c_for_m:
             if(self.haveI == missing):
                 # with lock_print:
-                print "{} is Smoking".format(self.name)
+                print("{} is Smoking".format(self.name))
                 time.sleep(2)
                 with c_for_prd: c_for_prd.notify()
                 # lock_m.wait()
             else:
                 # with lock_print:
-                print "{} do not have missing Item".format(self.name)
+                print("{} do not have missing Item".format(self.name))
                 # with c_for_nxtr:c_for_nxtr.wait()
                 # lock_m.wait()
 
