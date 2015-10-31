@@ -3,7 +3,6 @@ from threading import *
 import time
 global event
 event = Event()
-j = RLock()
 
 class Producer(Thread):
     def run(self):
