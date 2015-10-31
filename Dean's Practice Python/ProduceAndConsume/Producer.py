@@ -18,6 +18,7 @@ class Producer(Thread):
 
     def run(self):
         print("Hello")
+        global lock_smoking
         while True:
             with lock_smoking:
                 self.produce_smokes()
@@ -31,27 +32,25 @@ class Producer(Thread):
             s = randint(0,2)
             smoke_materials_counter[s] +=1
 
+
 class Smoker(Thread):
     globals()
     def __init__(self,name, unlim_item):
         Thread.__init__(self)
         self.name = name
         self.unlimited_item = [i for i in smoke_materials if smoke_materials[i] == unlim_item]
-
-
     def run(self):
-
         print("Hi im a smoker. My name is {}".format(self.name))
         while True:
             with lock_smoking:
                 lock_smoking.wait()
                 self.attemptToSmoke()
 
+
     def attemptToSmoke(self):
         #better way to do this, but wanted to play with nested if's
-
         global smoke_materials_counter
-        print(self.unlimited_item)
+        #print(self.unlimited_item)
         if self.unlimited_item[0] == 0:
             if smoke_materials_counter[1] > 0 and smoke_materials_counter[2] > 0:
                 print(self.name + " is going to smoke. ")
@@ -79,7 +78,7 @@ class Smoker(Thread):
 
                 smoke_materials_counter[0]-=1
                 smoke_materials_counter[1]-=1
-
+        print(smoke_materials_counter)
 
 
 def test():
