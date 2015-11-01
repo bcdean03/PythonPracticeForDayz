@@ -65,20 +65,22 @@ class Smoker(Thread):
             if smoke_materials_counter[1] > 0 and smoke_materials_counter[2] > 0:
                 print(self.name + " is going to smoke. ")
                 sleep(1)
-                print(self.name + " is taking " + str(smoke_materials[0]) + " and " +
+                print(self.name + " is taking " + str(smoke_materials[1]) + " and " +
                       smoke_materials[2] + " to smoke.")
 
                 smoke_materials_counter[1]-=1
                 smoke_materials_counter[2]-=1
+                print(smoke_materials_counter)
         elif self.unlimited_item[0] == 1:
             if smoke_materials_counter[0] > 0 and smoke_materials_counter[2] > 0:
                 print(self.name + " is going to smoke. ")
                 sleep(1)
-                print(self.name + " is taking " + smoke_materials[1] + " and " +
+                print(self.name + " is taking " + smoke_materials[0] + " and " +
                       smoke_materials[2] + " to smoke.")
 
                 smoke_materials_counter[0]-=1
                 smoke_materials_counter[2]-=1
+                print(smoke_materials_counter)
         elif self.unlimited_item[0] == 2:
             if smoke_materials_counter[0] > 0 and smoke_materials_counter[1] > 0:
                 print(self.name + " is going to smoke. ")
@@ -88,7 +90,7 @@ class Smoker(Thread):
 
                 smoke_materials_counter[0]-=1
                 smoke_materials_counter[1]-=1
-        print(smoke_materials_counter)
+                print(smoke_materials_counter)
 
 
 def test():
