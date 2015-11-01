@@ -24,14 +24,14 @@ class Producer(Thread):
         while True:
             lock_smoking.acquire()
             self.produce_smokes()
-            print("Ive produced as much as I can, need to sleep for at least 15 seconds... Im exhausted...")
+            print("Ive produced as much as I can, need to sleep for at least 35 seconds... Im exhausted...")
             print(smoke_materials_counter)
             lock_smoking.release()
-            sleep(15)
+            sleep(35)
 
     def produce_smokes(self):
         global smoke_materials_counter
-        for i in range(0,10):
+        for i in range(0,40):
             s = randint(0,2)
             smoke_materials_counter[s] +=1
 
