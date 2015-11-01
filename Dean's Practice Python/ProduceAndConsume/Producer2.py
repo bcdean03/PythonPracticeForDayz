@@ -5,15 +5,12 @@ from random import randint
 from time import sleep
 import time
 smoke_materials_counter, smoke_materials, lock_smoking = [0,0,0],\
-                                                       {0: "Tobacco", 1: "Papers", 2: "Matches"},\
-                                                       RLock()
-
-
+                                                         {0: "Tobacco", 1: "Papers", 2: "Matches"},\
+                                                         RLock()
 
 
 
 class Producer(Thread):
-
     def __init__(self, name):
         Thread.__init__(self)
         self.name = name
@@ -41,7 +38,9 @@ class Smoker(Thread):
     def __init__(self,name, unlim_item):
         Thread.__init__(self)
         self.name = name
-        self.unlimited_item = [i for i in smoke_materials if smoke_materials[i] == unlim_item]
+        self.unlimited_item = [i for i in smoke_materials if smoke_materials[i] == unlim_item] # If the string is passed in is equal
+        # to the value in the dictionary then return the number in which it was into the objecys variable
+
     def run(self):
         print("Hi im a smoker. My name is {}".format(self.name))
         while True:
@@ -93,7 +92,7 @@ class Smoker(Thread):
                 print(smoke_materials_counter)
 
 
-def test():
+def start():
     prod = Producer("Dean")
     smoker1 = Smoker("smoker1", "Tobacco")
     smoker2 = Smoker("smoker2", "Matches")
@@ -103,8 +102,6 @@ def test():
     smoker2.start()
     smoker3.start()
     prod.start()
-def start():
-    test()
 
 if __name__ == '__main__':
     start()
