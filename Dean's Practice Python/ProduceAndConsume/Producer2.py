@@ -97,15 +97,10 @@ class Smoker(Thread):
 
 
 def start():
-    prod = Producer("Dean")
-    smoker1 = Smoker("smoker1", "Tobacco")
-    smoker2 = Smoker("smoker2", "Matches")
-    smoker3 = Smoker("smoker3", "Papers")
-
-    smoker1.start()
-    smoker2.start()
-    smoker3.start()
-    prod.start()
+    prod = Producer("Dean").start()
+    smoker1 = Smoker("smoker1", "Tobacco").start()
+    smoker2 = Smoker("smoker2", "Matches").start()
+    smoker3 = Smoker("smoker3", "Papers").start()
 
 if __name__ == '__main__':
     start()
