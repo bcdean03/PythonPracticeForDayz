@@ -56,37 +56,44 @@ class Smoker(Thread):
     def attemptToSmoke(self):
         #better way to do this, but wanted to play with nested if's
         global smoke_materials_counter
-        #print(self.unlimited_item)
 
         if self.unlimited_item[0] == 0:
             if smoke_materials_counter[1] > 0 and smoke_materials_counter[2] > 0:
-                print(self.name + " is going to smoke. ")
-                sleep(1)
+
                 print(self.name + " is taking " + str(smoke_materials[1]) + " and " +
                       smoke_materials[2] + " to smoke.")
+                print(self.name + " is going to smoke. ")
 
                 smoke_materials_counter[1]-=1
                 smoke_materials_counter[2]-=1
+                print(self.name + " is smoking...")
+                sleep(3)
+                print(self.name + " is done smoking...")
                 print(smoke_materials_counter)
         elif self.unlimited_item[0] == 1:
             if smoke_materials_counter[0] > 0 and smoke_materials_counter[2] > 0:
-                print(self.name + " is going to smoke. ")
-                sleep(1)
                 print(self.name + " is taking " + smoke_materials[0] + " and " +
                       smoke_materials[2] + " to smoke.")
+                print(self.name + " is going to smoke. ")
 
                 smoke_materials_counter[0]-=1
                 smoke_materials_counter[2]-=1
+                print(self.name + " is smoking...")
+                sleep(3)
+                print(self.name + " is done smoking...")
                 print(smoke_materials_counter)
         elif self.unlimited_item[0] == 2:
             if smoke_materials_counter[0] > 0 and smoke_materials_counter[1] > 0:
-                print(self.name + " is going to smoke. ")
-                sleep(1)
+
                 print(self.name + " is taking " + smoke_materials[0] + " and " +
                       smoke_materials[1] + " to smoke.")
+                print(self.name + " is going to smoke. ")
 
                 smoke_materials_counter[0]-=1
                 smoke_materials_counter[1]-=1
+                print(self.name + " is smoking...")
+                sleep(3)
+                print(self.name + " is done smoking...")
                 print(smoke_materials_counter)
 
 
