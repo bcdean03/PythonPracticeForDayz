@@ -53,8 +53,6 @@ class Smoker(Thread):
                 lock_smoking.release()
 
 
-
-
     def attemptToSmoke(self):
         #better way to do this, but wanted to play with nested if's
         global smoke_materials_counter
