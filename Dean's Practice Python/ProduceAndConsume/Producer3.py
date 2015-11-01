@@ -15,14 +15,12 @@ class Producer(Thread):
         self.name = name
 
     def run(self):
-        print("Hello")
         global lock_smoking
         while True:
-            lock_smoking.acquire()
-            self.produce_smokes()
-            print("Ive produced as much as I can, need to sleep for at least 35 seconds... Im exhausted...")
-            print(smoke_materials_counter)
-            lock_smoking.release()
+            with lock_smoking:
+                self.produce_smokes()
+                print("Ive produced as much as I can, need to sleep for at least 35 seconds... Im exhausted...")
+                print(smoke_materials_counter)
             sleep(35)
 
     def produce_smokes(self):
@@ -43,13 +41,10 @@ class Smoker(Thread):
     def run(self):
         print("Hi im a smoker. My name is {}".format(self.name))
         while True:
-            lock_smoking.acquire()
-            self.attemptToSmoke()
-            if smoke_materials_counter[0] == 0 and smoke_materials_counter[1]  == 0 and smoke_materials_counter[2]== 0:
-                lock_smoking.release()
-                time.sleep(2)
-            else:
-                lock_smoking.release()
+            with lock_smoking:
+                self.attemptToSmoke()
+                if smoke_materials_counter[0] == 0 and smoke_materials_counter[1]  == 0 and smoke_materials_counter[2]== 0:
+                    time.sleep(2)
 
 
     def attemptToSmoke(self):
