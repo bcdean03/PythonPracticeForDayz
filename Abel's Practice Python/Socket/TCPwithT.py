@@ -20,8 +20,8 @@ class Task(Thread):
         self.c.close()
 
 def main():
-    host = "localhost"
-    # host = "127.0.0.1"
+    # host = "localhost"
+    host = "10.50.3.3"
     port = 50002
     s = socket()
     s.bind((host,port))
