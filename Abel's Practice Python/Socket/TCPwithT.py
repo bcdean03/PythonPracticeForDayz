@@ -21,6 +21,7 @@ class Task(Thread):
 
 def main():
     host = "localhost"
+    # host = "127.0.0.1"
     port = 50002
     s = socket()
     s.bind((host,port))
