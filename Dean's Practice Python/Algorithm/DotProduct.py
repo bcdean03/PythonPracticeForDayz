@@ -1,6 +1,8 @@
 __author__ = 'Dean'
 vector_position_A = [2,2]
 vector_position_B = [6,5]
+radius_A = 1
+radius_B = 1
 
 velocity_A = [0, 1]
 velocity_B = [-3, 0]
@@ -16,13 +18,25 @@ def dot_product(vector1, vector2):
 def multiple_vector(int_var, vector):
     return [i*int_var for i in vector]
 
-def calculate_a_in_algo():
-    print((vector_subtraction(velocity_A, velocity_B)))
-    s = 2*(dot_product(vector_subtraction(velocity_A, velocity_B),
-                   vector_subtraction(vector_position_A, vector_position_B)))
-    return s
-
 def calculate_b_in_algo():
-    pass
+    return 2*(dot_product(vector_subtraction(velocity_A, velocity_B),
+                   vector_subtraction(vector_position_A, vector_position_B)))
 
-print calculate_a_in_algo()
+def calculate_a_in_algo():
+    return dot_product(vector_subtraction(velocity_A, velocity_B),
+                    vector_subtraction(velocity_A, velocity_B))
+
+def calculate_c_in_algo():
+    return dot_product(vector_subtraction(vector_position_A, vector_position_B),
+                    vector_subtraction(vector_position_A, vector_position_B)) - \
+                    (radius_A+radius_B)**2
+
+def calculate_a_b_c_of_algo():
+    # u = b*b-4*a*c
+    u = (calculate_b_in_algo()**2)
+    return calculate_b_in_algo()**2-4*calculate_a_in_algo()*calculate_c_in_algo()
+
+print calculate_a_b_c_of_algo()
+#print calculate_a_in_algo()
+#print calculate_b_in_algo()
+#print calculate_c_in_algo()
