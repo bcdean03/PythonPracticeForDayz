@@ -5,7 +5,7 @@ import socket
 def main():
 
     s = socket.socket()
-    s.connect(("localhost",50001))#request a connection with the listening server
+    s.connect(("localhost",50002))#request a connection with the listening server
     msg = raw_input("->",)
     while msg != 'q':
         s.send(msg)#Send message down the socket to the server, (Takes the byte to send)
