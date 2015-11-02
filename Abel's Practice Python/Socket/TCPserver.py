@@ -13,11 +13,11 @@ import socket
 
 def main():
     host = "localhost"
-    port = 50001
+    port = 50002
     s=socket.socket()#Create new socket object
     s.bind((host,port))#takes a tuple of host and port
     print 'Starting to listen.........'
-    s.listen(3)#Tell server to start listening for connection (# of connection want to listen to at a time)
+    s.listen(1)#Tell server to start listening for connection (# of connection want to listen to at a time)
     c,addr = s.accept() #returns a connection witch is a new Socket and the address; Accepts a connectoin when found/ returns new socket obj
     # (client,(ip,port))= s.accept()
     print "Connection from: {}".format(str(addr))

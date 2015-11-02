@@ -11,6 +11,7 @@ class Task(Thread):
         while True:
             data = self.c.recv(1024)#Going to receive some byte from the connection with max byte of 1024
             if not data:# c.recv will return false if the connection was closed
+               print("!!!Ended connection with %s!!!"%(self.name))
                break
             print "Received:", str(data),"from(",self.name+")"
             data = str(data).upper()
@@ -23,7 +24,7 @@ def main():
     port = 50002
     s = socket()
     s.bind((host,port))
-    s.listen(1)
+    s.listen(0)
     print 'Going to Star listening.........'
     cl = 0
     while True:
