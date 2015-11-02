@@ -35,7 +35,7 @@ def calculate_a_b_c_of_algo():
     #if postivive have to do roots
     return calculate_b_in_algo()**2-4*calculate_a_in_algo()*calculate_c_in_algo()
 
-print "Positive or neggative: {}".format(calculate_a_b_c_of_algo())
+print "Positive or negative: {}".format(calculate_a_b_c_of_algo())
 print "A: {}".format(calculate_a_in_algo())
 print "B: {}".format(calculate_b_in_algo())
 print "C: {}".format(calculate_c_in_algo())
