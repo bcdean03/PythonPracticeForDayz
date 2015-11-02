@@ -3,6 +3,7 @@ from threading import *
 from time import sleep
 import random
 
+
 smph,items,c_Agent,l_m,evt,missing,found_s = BoundedSemaphore(3),{0:"Paper",1:"Tabacco",2:"Lighter"},Condition(RLock()),RLock(),Event(),-1,False
 rangeSet = 3
 class Agent (Thread):
@@ -60,7 +61,6 @@ class Smoker (Thread):
 
 
 def main():
-
     # smk1 = Smoker("Smk1",0).start()#Paper
     # smk2 = Smoker("Smk2",1).start()#Tabaco
     # smk3 = Smoker("Smk3",2).start()#Lighther
