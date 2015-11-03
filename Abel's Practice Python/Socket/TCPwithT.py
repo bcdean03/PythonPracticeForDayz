@@ -7,7 +7,7 @@ class Task(Thread):
         Thread.__init__(self, name=n)
         self.c,self.addr = skt
     def run(self):
-        print "Connection from>{} {}".format(self.name,str(self.addr))
+        print "Connection from > {} {}".format(self.name,str(self.addr))
         while True:
             data = self.c.recv(1024)#Going to receive some byte from the connection with max byte of 1024
             if not data:# c.recv will return false if the connection was closed
@@ -20,17 +20,19 @@ class Task(Thread):
         self.c.close()
 
 def main():
-    # host = "localhost"
-    host = "10.50.3.3"
+    host = "localhost"
+    # host = "10.50.3.3"
     port = 50002
     s = socket()
     s.bind((host,port))
     s.listen(0)
     print 'Going to Star listening.........'
     cl = 0
+    # end = 'q'
     while True:
         cl+=1
         Task("Client:%d"%(cl),s.accept()).start()
+        # end = raw_input("Do you want to close the Socket!?")
     s.close()
 
 
