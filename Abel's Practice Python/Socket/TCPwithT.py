@@ -5,7 +5,9 @@ from socket import *
 class Task(Thread):
     def __init__(self, n, skt):
         Thread.__init__(self, name=n)
+        #first item in list goes to self.c, then the rest of the list goes to address
         self.c,self.addr = skt
+
     def run(self):
         print "Connection from > {} {}".format(self.name,str(self.addr))
         while True:
@@ -26,7 +28,7 @@ def main():
     s = socket()
     s.bind((host,port))
     s.listen(0)
-    print 'Going to Star listening.........'
+    print 'Going to Start listening.........'
     cl = 0
     end = ''
     while True:
