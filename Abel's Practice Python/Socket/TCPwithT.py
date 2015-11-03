@@ -22,12 +22,13 @@ class Task(Thread):
         self.c.close()
 
 def main():
-    host = "localhost"
+    # host = "localhost"
+    host = "10.1.10.18"
     # host = "10.50.3.3"
-    port = 50002
+    port = 5002
     s = socket()
     s.bind((host,port))
-    s.listen(0)
+    s.listen(1)
     print 'Going to Start listening.........'
     cl = 0
     end = ''
