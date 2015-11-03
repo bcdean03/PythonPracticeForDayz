@@ -28,8 +28,9 @@ def main():
     s.listen(0)
     print 'Going to Star listening.........'
     cl = 0
-    # end = 'q'
+    end = ''
     while True:
+    # while end!='q':
         cl+=1
         Task("Client:%d"%(cl),s.accept()).start()
         # end = raw_input("Do you want to close the Socket!?")
